@@ -15,27 +15,57 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='EnderecoEntrega',
+            name="EnderecoEntrega",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('cep', models.CharField(max_length=20)),
-                ('endereco', models.CharField(max_length=100)),
-                ('bairro', models.CharField(max_length=50)),
-                ('cidade', models.CharField(max_length=50)),
-                ('estado', models.CharField(max_length=50)),
-                ('numero', models.CharField(max_length=5)),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("cep", models.CharField(max_length=20)),
+                ("endereco", models.CharField(max_length=100)),
+                ("bairro", models.CharField(max_length=50)),
+                ("cidade", models.CharField(max_length=50)),
+                ("estado", models.CharField(max_length=50)),
+                ("numero", models.CharField(max_length=5)),
             ],
         ),
         migrations.CreateModel(
-            name='DemandaPeca',
+            name="DemandaPeca",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('descricao', models.TextField()),
-                ('telefone', models.CharField(max_length=20)),
-                ('email', models.CharField(max_length=100)),
-                ('status_finalizacao', models.CharField(max_length=255)),
-                ('anunciante', models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, related_name='demanda_pecas', to=settings.AUTH_USER_MODEL)),
-                ('endereco_entrega', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='demanda_pecas', to='demanda_pecas.enderecoentrega')),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("descricao", models.TextField()),
+                ("telefone", models.CharField(max_length=20)),
+                ("email", models.CharField(max_length=100)),
+                ("status_finalizacao", models.CharField(max_length=255)),
+                (
+                    "anunciante",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.PROTECT,
+                        related_name="demanda_pecas",
+                        to=settings.AUTH_USER_MODEL,
+                    ),
+                ),
+                (
+                    "endereco_entrega",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="demanda_pecas",
+                        to="demanda_pecas.enderecoentrega",
+                    ),
+                ),
             ],
         ),
     ]

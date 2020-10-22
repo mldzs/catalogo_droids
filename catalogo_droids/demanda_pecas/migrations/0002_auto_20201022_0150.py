@@ -6,17 +6,17 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('demanda_pecas', '0001_initial'),
+        ("demanda_pecas", "0001_initial"),
     ]
 
     operations = [
         migrations.RemoveField(
-            model_name='demandapeca',
-            name='status_finalizacao',
+            model_name="demandapeca",
+            name="status_finalizacao",
         ),
         migrations.AddField(
-            model_name='demandapeca',
-            name='finalizado',
+            model_name="demandapeca",
+            name="finalizado",
             field=models.BooleanField(default=False),
         ),
     ]

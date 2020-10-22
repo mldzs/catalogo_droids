@@ -13,8 +13,12 @@ class EnderecoEntrega(models.Model):
 
 class DemandaPeca(models.Model):
     descricao = models.TextField()
-    endereco_entrega = models.ForeignKey(EnderecoEntrega, on_delete=models.CASCADE, related_name='demanda_pecas')
+    endereco_entrega = models.ForeignKey(
+        EnderecoEntrega, on_delete=models.CASCADE, related_name="demanda_pecas"
+    )
     telefone = models.CharField(max_length=20)
     email = models.CharField(max_length=100)
-    anunciante = models.ForeignKey(User, on_delete=models.PROTECT, related_name='demanda_pecas')
+    anunciante = models.ForeignKey(
+        User, on_delete=models.PROTECT, related_name="demanda_pecas"
+    )
     finalizado = models.BooleanField(default=False)
