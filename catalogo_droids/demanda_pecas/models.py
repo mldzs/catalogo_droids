@@ -17,4 +17,4 @@ class DemandaPeca(models.Model):
     telefone = models.CharField(max_length=20)
     email = models.CharField(max_length=100)
     anunciante = models.ForeignKey(User, on_delete=models.PROTECT, related_name='demanda_pecas')
-    status_finalizacao = models.CharField(max_length=255)
+    finalizado = models.BooleanField(default=False)

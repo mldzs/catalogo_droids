@@ -1,5 +1,6 @@
 from rest_framework.decorators import action
 from rest_framework.permissions import IsAuthenticated
+from rest_framework.response import Response
 
 from .models import DemandaPeca
 from .serializers import DemandaPecaSerializer
@@ -10,7 +11,7 @@ from ..util_views import MixedPermissionModelViewSet
 class DemandaPecaViewSet(MixedPermissionModelViewSet):
     queryset = DemandaPeca.objects.all()
     serializer_class = DemandaPecaSerializer
-    #permission_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticated]
     filterset_fields = ["descricao", "endereco_entrega__cep", "email", "anunciante__username"]
     search_fields = ["descricao", "endereco_entrega__cep", "email", "anunciante__username"]
     ordering_fields = ["descricao", "endereco_entrega__cep", "email", "anunciante__username"]
@@ -30,3 +31,11 @@ class DemandaPecaViewSet(MixedPermissionModelViewSet):
             todas_demanda_pecas = todas_demanda_pecas.filter(anunciante=user)
 
         return todas_demanda_pecas
+
+    @action(methods=["PATCH"], detail=True, permission_classes=[IsAuthenticated, IsUsuarioAdministradorOuUsuarioDono])
+    def finalizar_pedido(self, request, pk=None):
+        demanda = self.get_object()
+        demanda.finalizado = True
+        demanda.save()
+
+        return Response(data={"message": "Demanda finalizada com sucesso!"}, status=200)
