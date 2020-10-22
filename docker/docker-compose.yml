@@ -16,7 +16,7 @@ services:
       context: ../
       dockerfile: ./docker/Dockerfile
     entrypoint: ./docker/entrypoint.web.sh
-    env_file:
+    environment:
       - POSTGRES_DB=${POSTGRES_DB:-catalogodroids}
       - POSTGRES_USER=${POSTGRES_USER:-catalogodroids}
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-catalogodroids@123}
