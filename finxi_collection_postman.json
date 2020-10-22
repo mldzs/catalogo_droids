@@ -1,0 +1,223 @@
+{
+	"info": {
+		"_postman_id": "0e59dcbd-ce17-4494-b741-3010082cefef",
+		"name": "Finxi",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost:8000/token/",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"admin\",\n    \"password\": \"admin\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/token/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"token",
+						""
+					]
+				},
+				"description": "Get token from 'administrador' user"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8000/api/demanda_pecas",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjAzMzQyMzM2LCJqdGkiOiIwNzJhYWRkYWM1YjA0ZWE3YjYzMmY1NzE4MzQzYzdjNSIsInVzZXJfaWQiOjJ9.1xsPLjjorsLMwEWeLLDtKw5o-MFtihMPPJd3CNx0NBI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"descricao\": \"teste descrição\",\n    \"endereco_entrega\": {\n        \"cep\": \"57112-123\",\n        \"endereco\": \"Rua tal tal\",\n        \"bairro\": \"tal tal\",\n        \"cidade\": \"Maceió\",\n        \"estado\": \"Alagoas\",\n        \"numero\": \"53B\"\n    },\n    \"telefone\": \"82 9 8888-8888\",\n    \"email\": \"mail@mail.com\",\n    \"anunciante\": \"anunciante\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/demanda_pecas",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"demanda_pecas"
+					]
+				},
+				"description": "Criar uma nova demanda com usuário 'anunciante'"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8000/api/demanda_pecas",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjAzMzQyMzM2LCJqdGkiOiIwNzJhYWRkYWM1YjA0ZWE3YjYzMmY1NzE4MzQzYzdjNSIsInVzZXJfaWQiOjJ9.1xsPLjjorsLMwEWeLLDtKw5o-MFtihMPPJd3CNx0NBI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/demanda_pecas",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"demanda_pecas"
+					]
+				},
+				"description": "Listagem das demandas"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8000/api/demanda_pecas/1",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjAzMzQyNjQxLCJqdGkiOiJjYjk2MzZlMWQ4NGE0YmY5YTAyNWQzNTFkOTQ3NTZiNCIsInVzZXJfaWQiOjF9.Qnfgp-x8CijWdMVs95zWAPjLkjNl1MGbePf5mBJGjnM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"descricao\": \"teste edição aa\",\n    \"endereco_entrega\": {\n        \"cep\": \"57112-123\",\n        \"endereco\": \"Rua tal tal\",\n        \"bairro\": \"tal tal\",\n        \"cidade\": \"Maceió\",\n        \"estado\": \"Alagoas\",\n        \"numero\": \"53B\"\n    },\n    \"telefone\": \"82 9 8888-8888\",\n    \"email\": \"mail@mail.com\",\n    \"anunciante\": \"admin\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/demanda_pecas/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"demanda_pecas",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8000/api/demanda_pecas/1",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjAzMzQyNjQxLCJqdGkiOiJjYjk2MzZlMWQ4NGE0YmY5YTAyNWQzNTFkOTQ3NTZiNCIsInVzZXJfaWQiOjF9.Qnfgp-x8CijWdMVs95zWAPjLkjNl1MGbePf5mBJGjnM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"descricao\": \"teste descrição\",\n    \"endereco_entrega\": {\n        \"cep\": \"57112-123\",\n        \"endereco\": \"Rua tal tal\",\n        \"bairro\": \"tal tal\",\n        \"cidade\": \"Maceió\",\n        \"estado\": \"Alagoas\",\n        \"numero\": \"53B\"\n    },\n    \"telefone\": \"82 9 8888-8888\",\n    \"email\": \"mail@mail.com\",\n    \"anunciante\": \"admin\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/demanda_pecas/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"demanda_pecas",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8000/api/demanda_pecas/1/finalizar_pedido",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjAzMzQzMzY0LCJqdGkiOiI0ZTViYWI4ZjY4YzQ0NmIzOTI3ZjFjY2E5MmIzNjMwOCIsInVzZXJfaWQiOjJ9.cBALfVdB0DgdAHZd-zntYtjnlTArCtOdJaUEYZrxBWI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/demanda_pecas/1/finalizar_pedido",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"demanda_pecas",
+						"1",
+						"finalizar_pedido"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

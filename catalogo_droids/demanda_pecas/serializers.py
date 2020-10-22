@@ -8,6 +8,7 @@ class EnderecoEntregaSerializer(serializers.ModelSerializer):
     class Meta:
         model = EnderecoEntrega
         fields = "__all__"
+        read_only_fields = ["id"]
 
 
 class DemandaPecaSerializer(serializers.ModelSerializer):

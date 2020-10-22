@@ -48,7 +48,7 @@ class DemandaPecaViewSet(MixedPermissionModelViewSet):
         return todas_demanda_pecas
 
     @action(
-        methods=["PATCH"],
+        methods=["put"],
         detail=True,
         permission_classes=[IsAuthenticated, IsUsuarioAdministradorOuUsuarioDono],
     )
