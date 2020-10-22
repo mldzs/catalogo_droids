@@ -13,6 +13,8 @@ from datetime import timedelta
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
+from decouple import config
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
@@ -20,12 +22,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = ')u(49h%ur4@iudj2z!#b3f!@cj+uv5y-fbyz54jdc%hmc7$zxy'
+SECRET_KEY = config("SECRET_KEY", default="set your secret key")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = config("DEBUG", default=True, cast=bool)
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -85,9 +87,13 @@ WSGI_APPLICATION = 'catalogo_droids.wsgi.application'
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+    "default": {
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": config("POSTGRES_DB", default="catalogodroids"),
+        "USER": config("POSTGRES_USER", default="catalogodroids"),
+        "PASSWORD": config("POSTGRES_PASSWORD", default="catalogodroids@123"),
+        "HOST": config("POSTGRES_HOST", default="localhost"),
+        "PORT": "5432",
     }
 }
 
